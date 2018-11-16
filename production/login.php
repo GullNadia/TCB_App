@@ -1,7 +1,7 @@
 
 
 <?php 
-  $conn=mysqli_connect("localhost","root","developer","tcbapp_db");
+  $conn=mysqli_connect("localhost","root","","tcbapp_db");
   session_start();
   if(isset($_POST['submit']))
 
