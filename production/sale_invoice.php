@@ -25,23 +25,17 @@
                 <div class="x_panel">
                     <div class="x_title">
 						<div class="form-group">
-                        <label class="control-label col-md-1 col-sm-1 col-xs-12">IMEI NO:</span>
+                        <label class="control-label col-md-1 col-sm-1 col-xs-12">Barcode NO:</span>
                         </label>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                           <input type="number" name="imei" id="imei"  value=""class="form-control col-md-7 
 						  col-xs-12">
                         </div>
-						<label class="control-label col-md-1 col-sm-1 col-xs-12">Product Name</span>
-                        </label>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                          <input type="text" name="product_name" id="product_name"  value="" class="form-control col-md-7 
-						  col-xs-12">
-                        </div> 
-						</div>
+					</div>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li class="dropdown">
+                      <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
                           <li><a href="#">Settings 1</a>
@@ -49,7 +43,7 @@
                           <li><a href="#">Settings 2</a>
                           </li>
                         </ul>
-                      </li>
+                      </li> -->
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -138,7 +132,7 @@
 							$("#display_form").show();
 						});
 						
-				var imeiNo,rowCount,sumOfSalePrice=0,sumOfDiscount=0,sumOfFinalPrice=0,productName;
+				var imeiNo,rowCount,sumOfSalePrice=0,sumOfDiscount=0,sumOfFinalPrice=0,productName,discount=0;
 			 //array declaration 
 				let purchaseInvoiceIdArr = new Array();
 				let productIdArr = new Array();
@@ -227,7 +221,7 @@
 			
 			function discountValue(value,index)
 						{
-							var a,discount=0 ;
+							var a ;
                             a = index.parentNode.parentNode.rowIndex;
 				            a = a-1;
 							discount = (salePriceArr[a]*value)/100;
@@ -268,8 +262,8 @@
 				//alert(imeiArr);
 				
 				sumOfSalePrice = parseInt(sumOfSalePrice)- parseInt(price);
-				sumOfFinalPrice = parseInt(sumOfFinalPrice)- parseInt(finalP)+ parseInt(discountVal);
-				sumOfDiscount = parseInt(sumOfDiscount)- parseInt(discountVal);
+				sumOfFinalPrice = parseInt(sumOfFinalPrice) - parseInt(discountVal);
+				sumOfDiscount = parseInt(sumOfDiscount)- parseInt(discount);
 				
 				document.getElementById('total').innerHTML="Total:"+sumOfSalePrice;
 				document.getElementById('detail').innerHTML="Discount:"+ sumOfDiscount + "<br/>Net Total:"+sumOfFinalPrice;
