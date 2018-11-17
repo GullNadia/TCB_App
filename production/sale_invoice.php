@@ -138,7 +138,7 @@
 							$("#display_form").show();
 						});
 						
-				var imeiNo,rowCount,sumOfSalePrice=0,sumOfDiscount=0,sumOfFinalPrice=0,productName,discount=0;
+				var imeiNo,rowCount,sumOfSalePrice=0,sumOfDiscount=0,sumOfFinalPrice=0,productName;
 			 //array declaration 
 				let purchaseInvoiceIdArr = new Array();
 				let productIdArr = new Array();
@@ -227,7 +227,7 @@
 			
 			function discountValue(value,index)
 						{
-							var a ;
+							var a,discount=0 ;
                             a = index.parentNode.parentNode.rowIndex;
 				            a = a-1;
 							discount = (salePriceArr[a]*value)/100;
@@ -268,8 +268,8 @@
 				//alert(imeiArr);
 				
 				sumOfSalePrice = parseInt(sumOfSalePrice)- parseInt(price);
-				sumOfFinalPrice = parseInt(sumOfFinalPrice) - parseInt(discountVal);
-				sumOfDiscount = parseInt(sumOfDiscount)- parseInt(discount);
+				sumOfFinalPrice = parseInt(sumOfFinalPrice)- parseInt(finalP)+ parseInt(discountVal);
+				sumOfDiscount = parseInt(sumOfDiscount)- parseInt(discountVal);
 				
 				document.getElementById('total').innerHTML="Total:"+sumOfSalePrice;
 				document.getElementById('detail').innerHTML="Discount:"+ sumOfDiscount + "<br/>Net Total:"+sumOfFinalPrice;
