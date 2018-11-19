@@ -1,4 +1,4 @@
-  <?php 
+<?php 
      include_once 'db_connection.php';
 	  include_once 'function.php';
       include_once 'session.php';
@@ -7,6 +7,15 @@
 		public function __construct(){
 			 $this->connect();
 			    }
+
+			public function fetch_sale_invoice_id($customer_id,$date,$total,$total_discount,$net_total,$amount_paid,$remaining){
+			$stmt = $this->conn->prepare("SELECT sale_id FROM sale_invoice WHERE customer_id ={$customer_id} AND date = {$date} AND total = {$total_discount} AND net_total = {$net_total} AND amount_paid = {$amount_paid} AND remaining ={$remaining}") or die($this->conn->error);
+			  if($stmt->execute()){
+					$result = $stmt->get_result();
+					return $result;
+			    }
+
+		}    
 		  //insert distributor
 		 public function customer($name,$father_name,$cnic,$phone_no,$address){
 		 	  $inserts="INSERT INTO customer VALUES(null,'{$name}','{$father_name}','{$cnic}','{$phone_no}','{$address}')";
@@ -65,6 +74,46 @@
 					$_SESSION["message"] = "Distributor Edit Failed.";
 					echo '<script>window.location="distributor_record.php";</script>';
 						}
-					  }
+			}
+		 public function sale_invoice($customer_id,$date,$total,$total_discount,$net_total,$amount_paid,$remaining){
+		 	  $inserts="INSERT INTO sale_invoice VALUES(null,'$customer_id','$date','$total','$total_discount','$net_total',
+		 	  '$amount_paid','$remaining')";
+			 $insert = $this->conn->query($inserts);
+			 if($insert){
+			 	$res = fetch_sale_invoice_id($customer_id,$date,$total,$total_discount,$net_total,$amount_paid,$remaining);
+				//Success
+			  //$_SESSION["message"] = "Invoice created successfully.";
+			  echo '<script>window.location="customer_ajax_request.php?sale_id=<?php echo $res;?>" </script>';
+				 } else {
+				//Failure
+			  $_SESSION["message"] = "Invoice creation failed.";
+			   echo '<script>window.location="sale_invoice.php"; </script>';
+				 }
+		    }
+		
+	//insert array 
+		public function sale($customer_id,$date,$total,$total_discount,$net_total,$amount_paid,$remaining)
+		{
+        for($i=0; $i< $length; $i++)
+		{
+		$query = "INSERT INTO sale_invoice VALUES(null,'$customer_id ','$product_id[$i]','$imei_no[$i]','$discount_per_item[$i]','$total[$i]','$total_discount[$i]','$net_total[$i]')";											
+		$result = $this->conn->query($query);
 		}
+		 if($result){
+				//Success
+				$_SESSION["message"] = "Products added against purchase invoice successfully."; ?>
+					<script>
+					    window.location="products_per_purchase_invoice.php?invoice_id=<?php echo $purchase_invoice_id;?>";
+					</script>
+		 <?php }else{
+					$_SESSION["message"] = "Products added against purchase invoice failed."; ?>
+					<script>
+					    window.location="products_per_purchase_invoice.php?invoice_id=<?php echo $purchase_invoice_id;?>";
+					</script>
+			
+		<?php
+		 }
+		 
+		}
+	}	
 ?>

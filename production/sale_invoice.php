@@ -25,18 +25,18 @@
                 <div class="x_panel">
                     <div class="x_title">
 						<div class="form-group">
-                        <label class="control-label col-md-1 col-sm-1 col-xs-12">IMEI NO:</span>
+                        <label class="control-label col-md-1 col-sm-1 col-xs-12">Barcode NO:</span>
                         </label>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                           <input type="number" name="imei" id="imei"  value=""class="form-control col-md-7 
 						  col-xs-12">
                         </div>
-						<label class="control-label col-md-1 col-sm-1 col-xs-12">Product Name</span>
+						<!-- <label class="control-label col-md-1 col-sm-1 col-xs-12">Product Name</span>
                         </label>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                           <input type="text" name="product_name" id="product_name"  value="" class="form-control col-md-7 
 						  col-xs-12">
-                        </div> 
+                        </div>  -->
 						</div>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -85,7 +85,9 @@
             <div class="x_title">
 			    
 				<label><h4>Receipt</h4></label>
-					
+				<span style="margin-left: 80px;">
+					Date:<?php echo date("m-d-Y");?>
+				</span>	
 			</div>
 			
 			<div class="x_content">
@@ -95,13 +97,30 @@
                         <label class="control-label col-md-6 col-sm-6 col-xs-12">Select Customer:<span class="required"></span>
                         </label>
                         <div class="search-box" class="col-md-7 col-sm-7 col-xs-12" >
-						    <input type="text" autocomplete="off" placeholder="Search customer..." />
+						    <input type="text" autocomplete="off" id="customer_search"  placeholder="Search customer..." />
                             <div class="result"></div>					   
                         </div> 
 				</div>
 				<p id="total"></p>
 				<p id="detail"></p>
-			</div>	    
+				<div id="one" class="form-group" style="display: none;">
+                        <label class="control-label col-md-6 col-sm-6 col-xs-12">Amount Paid<span class="required"></span>
+                        </label>
+                        <div class="col-md-7 col-sm-7 col-xs-12" >
+						    <input type="text" id="amount_paid"class="form-control col-md-12 col-xs-12" placeholder="Enter Amount paid" />			   
+                        </div> 
+				</div>
+				<div id="two" class="form-group" style="display: none;">
+                        <label class="control-label col-md-6 col-sm-6 col-xs-12">Remaining Amount<span class="required"></span>
+                        </label>
+                        <div class="col-md-7 col-sm-7 col-xs-12" >
+						    <input type="text" id="amount_payable" class="form-control col-md-12 col-xs-12" readonly />			   
+                        </div> 
+				</div>
+				<div class="form-group">
+ 				<button id="btn" type="submit" name ="submit" class="btn btn-success" style="display: none;">Submit</button>
+ 				</div>
+ 			</div>	    
 		</div>
 	</div>		
 	</div>
@@ -133,12 +152,14 @@
                    //this method print the table heading
 						$("#imei").change(function(){
 							$("#display_form").show();
+							$("#btn").show();
 						});
 						// $("#product_name").change(function(){
 						// 	$("#display_form").show();
 						// });
 						
 				var imeiNo,rowCount,sumOfSalePrice=0,sumOfDiscount=0,sumOfFinalPrice=0,productName,discount=0;
+				
 			 //array declaration 
 				let purchaseInvoiceIdArr = new Array();
 				let productIdArr = new Array();
@@ -153,7 +174,7 @@
 			$('#imei').change(function(event){
 				//get all input value in variable 
 				 imeiNo = document.getElementById('imei').value;
-				 productName = document.getElementById('product_name').value;
+				// productName = document.getElementById('product_name').value;
 				// this function is used to send data without page reloade
 					event.preventDefault();
 				
@@ -161,7 +182,7 @@
 				  method:"POST",
 				  url:"ajax_request_fetch_data_sale_invoice.php",
 				  //take a imei number from user and send this data through ajax request
-				  data:{imei_no:imeiNo,product_name:productName}
+				  data:{imei_no:imeiNo}
 				})
 				//after success 
 				.done(function(data){
@@ -222,9 +243,12 @@
 							
 							document.getElementById('total').innerHTML="Total:"+sumOfSalePrice;
 							document.getElementById('detail').innerHTML="Discount:"+ sumOfDiscount + "<br/>Net Total:"+sumOfFinalPrice;
+							$('#one').show();
+							$('#two').show();
+							document.getElementById('btn').innerHTML;
+
 				});
 			});
-			
 			function discountValue(value,index)
 						{
 							var a ;
@@ -243,7 +267,15 @@
 							sumOfFinalPrice = sumOfFinalPrice - discount;
 							
 							document.getElementById('detail').innerHTML="Discount:" + sumOfDiscount + "</br>Net Total:" + sumOfFinalPrice;
+
 						}
+						let amountPaid, remaining; 
+							$('#amount_paid').change(function(event){
+								amountPaid = $('#amount_paid').val();
+							     remaining = parseInt(sumOfFinalPrice - amountPaid);
+								$('#amount_payable').val(remaining);
+								
+							});
 						
 			function deleteRecord(value)
 			{
@@ -273,9 +305,29 @@
 				
 				document.getElementById('total').innerHTML="Total:"+sumOfSalePrice;
 				document.getElementById('detail').innerHTML="Discount:"+ sumOfDiscount + "<br/>Net Total:"+sumOfFinalPrice;
-				
 				//alert(salePriceArr.length);
 			}
+	$('#btn').click(function(){
+		let customer_search = document.getElementById("customer_search").value;
+		
+	      $.ajax({
+			url:"sale_crud.php",
+			method: "POST",
+			data:{purchase_invoice_id:purchaseInvoiceIdArr,customer_id:customer_search, product_id:productIdArr,imei_no:imeiArr,discount_per_item:discountArr,sale_price:salePriceArr,
+				total:sumOfSalePrice,total_discount:sumOfDiscount,net_total:sumOfFinalPrice,amount_paid:amountPaid,remaining:remaining},
+            
+			success:function(message)
+			{
+				if(message == 1){
+					alert("Your sale invoice created successfully");
+					window.location.reload(); 
+				} else {
+					alert("fail");
+				}
+			}
+			});  					
+        }); // click event
+			
 	</script>
 	<div class="modal fade" id="myModal_customer" role="dialog">
     <div class="modal-dialog">
