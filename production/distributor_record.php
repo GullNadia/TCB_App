@@ -29,7 +29,7 @@
 				    <?php echo message();?>
                   <div class="x_title">
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"> + Add Distributer 
-					</button>
+					           </button>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>

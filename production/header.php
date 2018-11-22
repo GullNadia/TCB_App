@@ -1,4 +1,21 @@
-<!DOCTYPE html>
+
+ 
+<?php  include_once 'session.php';?>
+<?php include'connection.php' ?>
+<?php 
+   
+   $query="SELECT * FROM users  WHERE user_name='$usernames'";
+   $result=mysqli_query($connection,$query);
+   while ($row=mysqli_fetch_assoc($result)) {
+     $image= $row["image"];
+   }
+
+?>
+
+
+
+
+
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -117,8 +134,8 @@
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-mobile fa-1x"></i> <span>TCB App</span></a>
+            <div class="navbar nav_title" style="border:0px;">
+              <a href="index.php" class="site_title"><span>POS</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -126,11 +143,11 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="<?php echo $image; ?>" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>Rana Faraz</h2>
+                <h2><?php echo $usernames; ?></h2>
               </div>
               <div class="clearfix"></div>
             </div>
@@ -143,6 +160,7 @@
                 <ul class="nav side-menu">
                   </li>
 					 <li><a href="index.php"><i class="fa fa-home"></i>Home</a>
+            <li><a href="manage_admin.php"><i class="fa fa-user"></i>Manage Admin</a>
                   </li> 
 				  
 				   <li><a href="#"><i class="fa fa-home"></i> Distributor <span class="fa fa-chevron-down"></span></a>
@@ -150,22 +168,28 @@
                         <li><a href="distributor_record.php">Distributor Record</a></li>
                     </ul>
                   </li>
+
+                  <li>
+
+                    <a href="customers_index.php"><i class="fa fa-users"></i> Customers</a>
+                    
+                  </li>
                  
-				 <li><a href="#"><i class="fa fa-home"></i>Products<span class="fa fa-chevron-down"></span></a>
+				 <li><a href="#"><i class="fa fa-product-hunt"></i>Products<span class="fa fa-chevron-down"></span></a>
 					<ul class="nav child_menu">
                         <li><a href="products_record.php">Products Record</a></li>
                     </ul>
                   </li>
 				  
-				  <li><a href="#"><i class="fa fa-home"></i> Purchase Invoice <span class="fa fa-chevron-down"></span></a>
+				  <li><a href="#"><i class="fa fa-sign-in"></i> Purchase Invoice <span class="fa fa-chevron-down"></span></a>
 					<ul class="nav child_menu">
                       <li><a href="purchase_invoice.php">Purchase Invoice Record</a></li>
                     </ul>
                   </li>
-					 <li><a href="sale_invoice.php"><i class="fa fa-home"></i> Sale Invoice</a>
+					 <li><a href="sale_invoice.php"><i class="fa fa-sign-out"></i> Sale Invoice</a>
                   </li> 
 				  
-				    <li><a href="#"><i class="fa fa-home"></i> Stock <span class="fa fa-chevron-down"></span></a>
+				    <li><a href="#"><i class="glyphicon glyphicon-adjust"></i> Stock <span class="fa fa-chevron-down"></span></a>
 					<ul class="nav child_menu">
 					  <li><a href="available_stock.php">Available</a></li>
 					  <li><a href="sold_stock.php">Sold</a></li>
@@ -181,20 +205,7 @@
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
-            </div>
+         
             <!-- /menu footer buttons -->
           </div>
         </div>
@@ -210,8 +221,8 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Rana Faraz
-                    <span class=" fa fa-angle-down"></span>
+                    <img src="<?php echo $image ?>" alt=""><?php echo $usernames; ?>
+                    
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
@@ -227,12 +238,11 @@
                   </ul>
                 </li>
 
-                <li><a href="login.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i>Log Out</a>
 
                 <li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
+                    
                   </a>
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                     <li>

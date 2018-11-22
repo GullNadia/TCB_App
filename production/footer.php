@@ -1,7 +1,7 @@
 <!-- footer content -->
         <footer>
-          <div class="pull-right">
-            DexDevs
+          <div>
+            <p style="text-align: center;">Copyright &copy; 2018 All Rights Reserved By: <b>POS</b></p>
           </div>
           <div class="clearfix"></div>
         </footer>

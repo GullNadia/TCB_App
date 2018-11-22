@@ -1,5 +1,16 @@
 <?php
+
 	session_start();
+	$usernames=$_SESSION["user_name"];
+	//Checking the user about login or not 
+	if ($usernames) {
+	}
+	else
+	{
+		header("location:login.php");
+	}
+
+
 	function message() {
 		if (isset($_SESSION["message"])) {
 				$output = "<div class=\"alert alert-success\"  style = \"text-align:center\">";
