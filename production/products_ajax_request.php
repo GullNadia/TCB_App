@@ -1,5 +1,5 @@
 <?php		
-		$purchase_invoice_id = @$_POST['purchase_invoice_id'];
+		$purchase_invoice_id = $_POST['purchase_invoice_id'];
 		$product_id         = $_POST['product_id'];
 		$exp_starting       = $_POST['exp_starting'];
 	    $exp_ending         = $_POST['exp_ending'];
