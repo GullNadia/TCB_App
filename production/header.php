@@ -184,8 +184,17 @@
                       <li><a href="purchase_invoice.php">Purchase Invoice Record</a></li>
                     </ul>
                   </li>
-					 <li><a href="sale_invoice.php"><i class="fa fa-sign-out"></i> Sale Invoice</a>
-                  </li> 
+
+
+                  <li><a href="#"><i class="fa fa-sign-out"></i> Sale <span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+                      <li><a href="sale_invoice.php">Sale Invoice</a></li>
+                      <li><a href="view_sale_invoice.php">View Sale Invoices</a></li>
+                    </ul>
+                  </li>
+
+
+					 
 				  
 				    <li><a href="#"><i class="glyphicon glyphicon-adjust"></i> &nbsp;&nbsp;&nbsp;Stock <span class="fa fa-chevron-down"></span></a>
 					<ul class="nav child_menu">
