@@ -5,8 +5,8 @@ include_once 'sale_invoice_crud.php';
 ?>
 
         <!-- page content -->
-        <div class="right_col" role="main">
-          <div class="">
+        <div class="right_col" role="main"  style="height: 500px;">
+          <div class="" >
             <div class="page-title">
               <div class="title_left">
                 <h3>Sale Invoie</h3>

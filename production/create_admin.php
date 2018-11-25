@@ -52,7 +52,7 @@
                              
                               $user_name=$_POST["user_name"];
                               $user_email=$_POST["user_email"];
-                              $user_password=$_POST["user_password"];
+                              $user_password= md5($_POST["user_password"]);
                               $user_address=$_POST["user_address"];
                              $filename=$_FILES["image"]['name'];
                              $tempname=$_FILES["image"]['tmp_name'];
