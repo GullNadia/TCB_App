@@ -135,7 +135,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border:0px;">
-              <a href="index.php" class="site_title"><span>POS</span></a>
+              <a href="index.php" class="site_title" style="text-align: center;"><span>Point of Sale</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -163,7 +163,7 @@
             <li><a href="manage_admin.php"><i class="fa fa-user"></i>Manage Admin</a>
                   </li> 
 				  
-				  <li><a href="#"><i class="fab fa-dochub"></i> Distributor <span class="fa fa-chevron-down"></span></a>
+				  <li><a href="#"><i class="fab fa-dochub"></i>&nbsp;&nbsp; &nbsp;Distributor <span class="fa fa-chevron-down"></span></a>
 					        <ul class="nav child_menu">
                         <li><a href="distributor_record.php">Distributor Record</a></li>
                   </ul>
@@ -173,7 +173,7 @@
                         <li><a href="customer_record.php">Customer Record</a></li>
                   </ul>
           </li>      
-				 <li><a href="#"><i class="fa fa-product-hunt"></i>Products<span class="fa fa-chevron-down"></span></a>
+				 <li><a href="#"><i class="fa fa-product-hunt"></i> Products<span class="fa fa-chevron-down"></span></a>
 					<ul class="nav child_menu">
                         <li><a href="products_record.php">Products Record</a></li>
                     </ul>
@@ -187,7 +187,7 @@
 					 <li><a href="sale_invoice.php"><i class="fa fa-sign-out"></i> Sale Invoice</a>
                   </li> 
 				  
-				    <li><a href="#"><i class="glyphicon glyphicon-adjust"></i> Stock <span class="fa fa-chevron-down"></span></a>
+				    <li><a href="#"><i class="glyphicon glyphicon-adjust"></i> &nbsp;&nbsp;&nbsp;Stock <span class="fa fa-chevron-down"></span></a>
 					<ul class="nav child_menu">
 					  <li><a href="available_stock.php">Available</a></li>
 					  <li><a href="sold_stock.php">Sold</a></li>
@@ -236,7 +236,7 @@
                   </ul>
                 </li>
 
-                <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i>Log Out</a>
+                <li><a href="logout.php"><b> Log Out</b> &nbsp;<i class="fas fa-sign-out-alt"></i></a>
 
                 <li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
