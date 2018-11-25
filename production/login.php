@@ -8,7 +8,7 @@
   {
     
     $user_name = $_POST['user_name'];
-    $password  = $_POST['password'];
+    $password  = md5($_POST['password']);
 
     $query = "SELECT * FROM users WHERE user_name = '$user_name' AND password = '$password'";
 
