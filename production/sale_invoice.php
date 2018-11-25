@@ -94,31 +94,51 @@
 			    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal_customer"> + Add Customer 
 				</button>
 				<div class="form-group">
-                        <label class="control-label col-md-6 col-sm-6 col-xs-12">Select Customer:<span class="required"></span>
+					<div class="row">
+						<div class="col-md-12">
+                        	<label class="control-label">Select Customer:<span class="required"></span>
                         </label>
-                        <div class="search-box" class="col-md-7 col-sm-7 col-xs-12" >
-						    <input type="text" autocomplete="off" id="customer_search"  placeholder="Search customer..." />
-                            <div class="result"></div>					   
-                        </div> 
+						</div>
+					</div>
+					<div class="row">
+                        <div class="search-box col-md-12">
+					    	<input type="text" autocomplete="off" id="customer_search"  placeholder="Search customer..." />
+                        	<div class="result"></div>					   
+                    	</div>
+					</div>
+                        
+                         
 				</div>
 				<p id="total"></p>
 				<p id="detail"></p>
 				<div id="one" class="form-group" style="display: none;">
-                        <label class="control-label col-md-6 col-sm-6 col-xs-12">Amount Paid<span class="required"></span>
-                        </label>
-                        <div class="col-md-7 col-sm-7 col-xs-12" >
-						    <input type="text" id="amount_paid"class="form-control col-md-12 col-xs-12" placeholder="Enter Amount paid" />			   
-                        </div> 
+					<div class="row">
+						<div class="col-md-12">
+                        	<label class="control-label">Amount Paid:<span class="required"></span>
+                        	</label>
+						</div>
+					</div>
+					<div class="row">
+                        <div class="col-md-12">
+						    <input type="text" id="amount_paid"class="form-control col-md-12 col-xs-12" placeholder="Enter Amount paid..." />			   
+                        </div>
+					</div>
 				</div>
 				<div id="two" class="form-group" style="display: none;">
-                        <label class="control-label col-md-6 col-sm-6 col-xs-12">Remaining Amount<span class="required"></span>
+					<div class="row">
+						<div class="col-md-12">
+                        	<label class="control-label">Remaining Amount:<span class="required"></span>
                         </label>
-                        <div class="col-md-7 col-sm-7 col-xs-12" >
-						    <input type="text" id="amount_payable" class="form-control col-md-12 col-xs-12" readonly />			   
-                        </div> 
+						</div>
+					</div>
+					<div class="row">
+                        <div class="col-md-12">
+						    <input type="text" id="amount_payable" class="form-control col-md-12 col-xs-12" readonly />			
+                        </div>
+					</div>    
 				</div>
 				<div class="form-group">
- 				<button id="btn" type="submit" name ="submit" class="btn btn-success" style="display: none;">Submit</button>
+ 					<button id="btn" type="submit" name ="submit" class="btn btn-success" style="display: none;">Submit</button>
  				</div>
  			</div>	    
 		</div>

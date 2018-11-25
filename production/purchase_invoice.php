@@ -57,9 +57,9 @@
 						  <th>Discount Of Products</th>
 						  <th>Discount Of Invoice</th>
 						  <th>Net Discount</th>
+						  <th>Net Total Of Invoice</th>
 						  <th>Amount Paid</th>
 						  <th>Amount Payable</th>
-						  <th>Balance</th>
 						  <th>Update</th>
 						  <th>Remove</th>
 						</tr>
@@ -87,7 +87,7 @@
 							    <td align="center"><?php echo $fetch['amount_paid'];?>	</td>
 							    <td align="center"><?php echo $fetch['amount_payable'];?>	</td>
 								<td align="center">
-									<a href="edit_department.php?department_id=<?php echo $fetch['id'];?>" >
+									<a href="update_purchase_invoice.php?invoice_id=<?php echo $fetch['id'];?>" >
 										<i class="glyphicon glyphicon-edit"></i> 
 										</a>
 									</td>

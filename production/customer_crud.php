@@ -16,7 +16,7 @@
 			    }
 
 		}    
-		  //insert distributor
+		  //insert customer
 		 public function customer($name,$father_name,$cnic,$phone_no,$address){
 		 	  $inserts="INSERT INTO customer VALUES(null,'{$name}','{$father_name}','{$cnic}','{$phone_no}','{$address}')";
 			 $insert = $this->conn->query($inserts);
@@ -30,7 +30,7 @@
 			   echo '<script>window.location="sale_invoice.php"; </script>';
 				 }
 		    }
-			//fetch all record from distributor table
+			//fetch all record from customer table
 		  public function read(){
 			$stmt = $this->conn->prepare("SELECT * FROM customer") or die($this->conn->error);
 			  if($stmt->execute()){
@@ -38,18 +38,18 @@
 					return $result;
 			    }
 		    }
-		 // delete distributor
+		 // delete customer
 			public function delete_customer($customer_id){
 				$delete = "DELETE FROM customer WHERE id = {$customer_id}";
 				$deleted = $this->conn->query($delete);
 				if($deleted){
 					//Success
-				  $_SESSION["message"] = "Distributor Deleted Successfully.";
-			      echo '<script>window.location="distributor_record.php"; </script>';
+				  $_SESSION["message"] = "Customer Deleted Successfully.";
+			      echo '<script>window.location="customer_record.php"; </script>';
 					} else {
 					//Failure
-				  $_SESSION["message"] = "Distributor Deleted  Failed.";
-			      echo '<script>window.location="distributor_record.php"; </script>';
+				  $_SESSION["message"] = "Customer Deleted  Failed.";
+			      echo '<script>window.location="customer_record.php"; </script>';
 					}
 				}
 			//fetch data against selected id
@@ -60,19 +60,19 @@
 					return $result;
 					  }
 				  }
-			 // update distributor
+			 // update customer
 			public function update($customer_id,$name,$father_name,$cnic,$phone_no,$address){
 				$updates ="UPDATE customer SET name ='{$name}',father_name='{$father_name}',cnic='{$cnic}',phone_no='{$phone_no}',address ='{$address}' WHERE id = {$customer_id}";
 				$update = $this->conn->query($updates);
 
 				 if($update){
 						//Success
-					$_SESSION["message"] = "Distributor Edit Successfully.";
-					echo '<script>window.location="distributor_record.php"; </script>';
+					$_SESSION["message"] = "Customer Edit Successfully.";
+					echo '<script>window.location="customer_record.php"; </script>';
 						} else {
 						//Failure
-					$_SESSION["message"] = "Distributor Edit Failed.";
-					echo '<script>window.location="distributor_record.php";</script>';
+					$_SESSION["message"] = "Customer Edit Failed.";
+					echo '<script>window.location="customer_record.php";</script>';
 						}
 			}
 		 public function sale_invoice($customer_id,$date,$total,$total_discount,$net_total,$amount_paid,$remaining){

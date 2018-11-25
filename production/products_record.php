@@ -65,14 +65,15 @@
 							 <tr>	
 								<td align="center"><?php echo $fetch['product_name'];?>  </td>
 								<td align="center"><?php echo $fetch['manufacturer'];?>  </td>
-								
-								<td align="center">
-									<i class="glyphicon glyphicon-edit"  data-toggle="modal" data-target="#modalEdit"></i>
-								</td>
 								<?php 
 									global $product_id;
 									$product_id = $fetch['id'];
 								?>
+								<td align="center">
+									<a href="update_product.php?product_id=<?php echo $product_id;?>">
+              						<i class="glyphicon glyphicon-edit"></i></a>
+								</td>
+								
 								<td align="center"><a href="delete_product.php?product_id=
 									   <?php echo $product_id;?>" onclick="return Confirm('Are you sure?');"> 
 									<i class="glyphicon glyphicon-remove-circle">

@@ -1,12 +1,12 @@
 <?php include_once 'session.php';?>
 <?php include_once ('header.php');?>
 <?php include('connection.php'); ?>
-<?php include 'customer_crud.php' ?>
+<?php include 'distributor_crud.php' ?>
 <?php 
 
-    if(isset($_GET['customer_id']))
+    if(isset($_GET['distributor_id']))
     {
-      $id = $_GET['customer_id'];
+      $id = $_GET['distributor_id'];
       $select = new crudOp();
       $read = $select->fetch_selected_id($id); 
       $fetch = $read->fetch_array();
@@ -25,42 +25,16 @@
                 <h3>POS</h3>
               </div>
 
-              <!-- <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
-              </div> -->
             </div>
             <div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><b>Update Customers</b>
+                    <h2><b>Update Distributer</b>
 
                     </h2>
-                      
-                  <!--   <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-
-                    </ul> -->
+                  
                     <div class="clearfix"></div>
                   </div>
 
@@ -96,8 +70,8 @@
              <div class="row">
                <div class="col-md-4">
                  <div class="form-group">
-                       <label>Customer Name:</label>
-                       <input type="text" name="name" class="form-control" placeholder="Enter customer name" required="" value="<?php echo $fetch['name'];?>">
+                       <label>Distributer Name:</label>
+                       <input type="text" name="name" class="form-control" placeholder="Enter Distributer name" required="" value="<?php echo $fetch['name'];?>">
                      </div>
                </div>
                <div class="col-md-4">
@@ -143,7 +117,7 @@
              <div class="row">
                <div class="col-md-4">
                   <button type="submit" class="btn btn-success" name="submit"><i class="fa fa-save"></i> Submit</button>
-                     <a href="customers_index.php" class="btn btn-outline btn-danger"> <i class="fa fa-times"></i> Cancel</a>
+                     <a href="distributor_record.php" class="btn btn-outline btn-danger"> <i class="fa fa-times"></i> Cancel</a>
                </div>
              </div>
            </form>                

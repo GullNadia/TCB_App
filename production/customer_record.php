@@ -1,12 +1,15 @@
-<?php  include_once 'session.php';
-       include_once ('header.php'); ?>
+<?php  
+include_once 'session.php';
+include_once ('header.php'); 
+include_once 'customer_crud.php';
+?>
 
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Distributor Record</h3>
+                <h3>Customer Record</h3>
               </div>
 
               <div class="title_right">
@@ -28,7 +31,7 @@
                 <div class="x_panel">
 				    <?php echo message();?>
                   <div class="x_title">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"> + Add Distributer 
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"> + Add Customer 
 					           </button>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -50,21 +53,19 @@
                   <div class="x_content"><br/>
 				    <?php echo message();?>
 				  <!-- table to display the record of all distributors-->
-                      <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr >
-          <th align="center">Name</th>
-				  <th align="center">Father Name</th>
-				  <th align="center">CNIC</th>
-				  <th align="center">Phone no</th>
-				  <th align="center">Address</th>
-				  <th align="center">Update</th>
-				  <th align="center">Delete</th>
-                </tr>
-                </thead>
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                        <th align="center">Name</th>
+              				  <th align="center">Father Name</th>
+              				  <th align="center">CNIC</th>
+              				  <th align="center">Phone no</th>
+              				  <th align="center">Address</th>
+              				  <th align="center">Update</th>
+              				  <th align="center">Delete</th>
+                    </tr>
+                  </thead>
                 <tbody>
-				
-                   <?php include_once 'distributor_crud.php';?>
 					 <?php 
 					   // create object of a class
 					   $conn = new crudOp();
@@ -79,17 +80,18 @@
 						<td align="center"><?php echo $fetch['phone_no'];?>    </td>
 						<td align="center"><?php echo $fetch['address'];?>     </td>
             <?php
-                global $distributor_id;
-                  $distributor_id = $fetch['id'];
+                global $customer_id;
+                  $customer_id = $fetch['id'];
             ?>
 						<td align="center">
-              <a href="update_distributor.php?distributor_id=<?php echo $distributor_id;?>">
+              <a href="update_customers.php?customer_id=<?php echo $customer_id;?>">
               <i class="glyphicon glyphicon-edit"></i></a>
+				    <!-- <i class="glyphicon glyphicon-edit"  data-toggle="modal" data-target="#modalEdit"></i> -->
 						</td>
 						
 						
-						<td align="center"><a href="delete_distributor.php?
-						distributor_id=<?php echo $distributer_id;?>" onclick="return Confirm('Are you sure?');">
+						<td align="center"><a href="delete_customers.php?
+						customer_id=<?php echo $customer_id;?>" onclick="return Confirm('Are you sure?');">
 							<i class="glyphicon glyphicon-remove-circle"></i></a>
 						</td>
 					</tr>
@@ -116,10 +118,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h3 class="modal-title" align="center">Add Distributor</h3>
+          <h3 class="modal-title" align="center">Add Customer</h3>
         </div>
         <div class="modal-body">
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="POST" action="insert_distributor.php">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="POST" action="insert_customer.php">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12"> Name <span class="required">*</span>
@@ -165,7 +167,7 @@
                       
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-						  <button type="submit" class="btn btn-success">Submit</button>
+              <button type="submit" class="btn btn-success">Submit</button>
                           <button class="btn btn-danger" type="button">Cancel</button>
                           <button class="btn btn-primary" type="reset">Reset</button>
                           
@@ -177,6 +179,97 @@
     </div>
   </div> 
 </div>
+<!--model content close --> 
+<?php
+        //update customer against selected id
+           if(isset($_POST["submit"])){
+             $name        = $_POST["name"];
+             $father_name = $_POST["father_name"];
+             $cnic        = $_POST["cnic"];
+             $phone_no    = $_POST["phone_no"];
+             $address     = $_POST["address"];
+             
+           $crud = new crudOp();
+           $crud->update($customer_id,$name,$father_name,$cnic,$phone_no,$address);
+          }
+  ?> 
+ 
+<!--second model to edit distributer detail-->
+	 <div class="modal fade" id="modalEdit" role="dialog">
+		<div class="modal-dialog">
+		  <!-- Modal content-->
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal">&times;</button>
+			  <h3 class="modal-title" align="center">Update Customer</h3>
+			</div>
+			<div class="modal-body">
+						<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="POST">
+
+                      
+						<?php
+								// fetch data of selected product_id
+								  $select = new crudOp();
+								  $read = $select->fetch_selected_id($customer_id); 
+								  $fetch = $read->fetch_array();
+                  var_dump($fetch);
+						     ?>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" name="name" id="name" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $fetch["name"]?>">
+                        </div>
+                      </div>  
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"> Father Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" name="father_name" id="father_name" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $fetch["father_name"]?>">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">CNIC</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" name="cnic" class="form-control" data-inputmask="'mask' : '99999-9999999-9'"value="<?php echo $fetch["cnic"]?>">
+                          <span class="fa fa-user form-control-feedback right" aria-hidden="true" ></span>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3">Phone No.</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" name="phone_no" class="form-control"   data-inputmask="'mask' : '(+99)999-9999999'" value="<?php echo $fetch["phone_no"]?>">
+                          <span class="fa fa-user form-control-feedback right"  aria-hidden="true"></span>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Address<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <textarea class="form-control" name="address" rows="3"><?php echo $fetch["address"];?></textarea>
+                        </div>
+                      </div>
+                      
+                      <div class="ln_solid"></div>
+                      
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+						  <button type="submit" name="submit" value="submit" class="btn btn-success">Submit</button>
+                          <button class="btn btn-danger" type="button">Cancel</button>
+                          <button class="btn btn-primary" type="reset">Reset</button>
+                          
+                        </div>
+                      </div>
+
+                    </form>
+			</div>
+		  </div>
+		</div>
+	  </div> 
+	</div>
 <!--model content close --> 
 
 <?php include_once ('footer.php'); ?>        

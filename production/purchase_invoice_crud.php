@@ -63,8 +63,8 @@
 			    }
 		    }
 		// update department
-		public function update($department_id , $department_name){
-			$updates = "UPDATE department SET department_name = '{$department_name}' WHERE id = {$department_id}";
+		public function update($id,$name,$date,$comment,$net_total_of_products,$products_discount,$discount_of_invoice,$net_discount,$net_total,$amount_paid,$amount_payable){
+			$updates = "UPDATE purchase_invoice SET name = '{$name}', date = $date, comment = '{$comment}', net_total_of_products = $net_total_of_products, products_discount = $products_discount, discount_of_invoice = $discount_of_invoice, net_discount = $net_discount , net_total = $net_total , amount_paid = $amount_paid , amount_payable = $amount_payable WHERE id = {$id}";
 			$update = $this->conn->query($updates);
 
 			 if($update){
@@ -80,5 +80,13 @@
 					//redirect_to("department_record.php");
 					}
 				  }
+			//fetch data against selected id
+		  public function fetch_selected_id($invoice_id){
+			  $stmt=$this->conn->prepare("SELECT * FROM purchase_invoice WHERE id ={$invoice_id}") or die($this->conn->error);
+			   if($stmt->execute()){ 
+				$result = $stmt->get_result();
+				return $result;
+			      }
+			  }
 		}
 ?>

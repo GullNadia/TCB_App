@@ -163,18 +163,16 @@
             <li><a href="manage_admin.php"><i class="fa fa-user"></i>Manage Admin</a>
                   </li> 
 				  
-				   <li><a href="#"><i class="fa fa-home"></i> Distributor <span class="fa fa-chevron-down"></span></a>
-					<ul class="nav child_menu">
+				  <li><a href="#"><i class="fa fa-home"></i> Distributor <span class="fa fa-chevron-down"></span></a>
+					        <ul class="nav child_menu">
                         <li><a href="distributor_record.php">Distributor Record</a></li>
-                    </ul>
-                  </li>
-
-                  <li>
-
-                    <a href="customers_index.php"><i class="fa fa-users"></i> Customers</a>
-                    
-                  </li>
-                 
+                  </ul>
+          </li>
+          <li><a href="#"><i class="fa fa-home"></i> Customer <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                        <li><a href="customer_record.php">Customer Record</a></li>
+                  </ul>
+          </li>      
 				 <li><a href="#"><i class="fa fa-product-hunt"></i>Products<span class="fa fa-chevron-down"></span></a>
 					<ul class="nav child_menu">
                         <li><a href="products_record.php">Products Record</a></li>

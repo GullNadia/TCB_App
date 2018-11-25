@@ -61,7 +61,7 @@
                         <td align="center"><?php echo $fetch['address'];?>     </td>
                         <td>
                         
-                        <a href="update_customers.php?id=<?php echo $fetch['id'];?>" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i> Update</a>
+                        <a href="update_customers.php?id=<?php echo $fetch['id'];?>" class="btn btn-"><i class="glyphicon glyphicon-edit"></i> Update</a>
 
                         <a href="delete_customers.php?id=<?php echo $fetch['id']; ?>" onclick="return confirm('Are you sure?');" class="btn btn-danger">
                       <i class="glyphicon glyphicon-remove-circle"></i> Delete</a>
