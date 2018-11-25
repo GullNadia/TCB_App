@@ -26,12 +26,14 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 
-    <title>TCB_App </title>
+    <title>POS </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- New Font Awesome 5 -->
+    <link href="../vendors/fontawesome-free-5.5.0-web/css/all.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
 	 <!-- Datatables -->
@@ -161,12 +163,12 @@
             <li><a href="manage_admin.php"><i class="fa fa-user"></i>Manage Admin</a>
                   </li> 
 				  
-				  <li><a href="#"><i class="fa fa-home"></i> Distributor <span class="fa fa-chevron-down"></span></a>
+				  <li><a href="#"><i class="fab fa-dochub"></i> Distributor <span class="fa fa-chevron-down"></span></a>
 					        <ul class="nav child_menu">
                         <li><a href="distributor_record.php">Distributor Record</a></li>
                   </ul>
           </li>
-          <li><a href="#"><i class="fa fa-home"></i> Customer <span class="fa fa-chevron-down"></span></a>
+          <li><a href="#"><i class="fa fa-users"></i> Customer <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                         <li><a href="customer_record.php">Customer Record</a></li>
                   </ul>
