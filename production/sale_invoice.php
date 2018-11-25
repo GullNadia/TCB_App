@@ -66,7 +66,7 @@
 									  <th>Expiry Ending</th>
 									  <th>Sale Price</th>
 									  <th>Status</th>
-									  <th>IMEI NO </th>
+									  <th>Barcode NO </th>
 									  <th>Discount(%)</th>
 									  <th>Delete</th>
 									</tr>

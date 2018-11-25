@@ -18,7 +18,14 @@
 					return $result;
 				}
 		}	
-		
+		//fetch whole data from sale Invoice table 
+		  public function read(){
+			$stmt = $this->conn->prepare("SELECT * FROM sale_invoice") or die($this->conn->error);
+			if($stmt->execute()){
+				$result = $stmt->get_result();
+				return $result;
+			    }
+		     }
 		
 		}
 ?>

@@ -304,11 +304,11 @@
 			    </div>
 				 
 				<div class="form-group">
-                        <label class="control-label col-md-4 col-sm-4 col-xs-12">IMEI <span class="required">*</span>
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Barcode No <span class="required">*</span>
                         </label>
                         <div class="col-md-7 col-sm-7 col-xs-12">
                             <input type="number" maxlength="15" name="imei" id="imei" value= "" onchange="imeiFunction();"
-							       placeholder="IMEI" required="required"  class="form-control col-md-6">
+							       placeholder="Barcode No" required="required"  class="form-control col-md-6">
                         </div>
                 </div>				
                 <div class="form-group">

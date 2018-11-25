@@ -50,7 +50,7 @@
 						    <th>Expiry Ending Date</th>
 						    <th>Sale Price</th>
 						    <th>Status</th>
-						    <th>IMEI</th>
+						    <th>Barcode No</th>
 						</tr>
                       </thead>
                       <tbody>
