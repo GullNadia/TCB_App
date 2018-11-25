@@ -31,8 +31,7 @@ include_once 'sale_invoice_crud.php';
                 <div class="x_panel">
 				    <?php echo message();?>
                   <div class="x_title">
-                    <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"> + Add Customer 
-					           </button> -->
+                    <h3>Sale Invoice View</h3>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -52,7 +51,7 @@ include_once 'sale_invoice_crud.php';
                   </div>
                   <div class="x_content"><br/>
 				            <?php echo message();?>
-				  <!-- table to display the record of all customers-->
+				  <!-- table to display the record of all sale invoices-->
                 <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap">
                   <thead>
                     <tr>

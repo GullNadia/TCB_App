@@ -1,6 +1,6 @@
- <?php include 'session.php' ?>
+<?php include 'session.php' ?>
 <?php include_once ('header.php'); ?>
- <?php include 'purchase_invoice_crud.php';?>
+<?php include 'purchase_invoice_crud.php';?>
 
         <!-- page content -->
         <div class="right_col" role="main">

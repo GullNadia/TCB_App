@@ -332,7 +332,7 @@
 					<th> Purchase Price        </th>
 					<th> Selling Price         </th>
 					<th> Status                </th>
-					<th> IMEI                  </th>
+					<th> Barcode No            </th>
 				</tr>
 			</table>
 			<br/>
