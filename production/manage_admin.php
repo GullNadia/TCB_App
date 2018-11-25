@@ -53,7 +53,7 @@
                               <th  align="center">ID</th>
                               <th  align="center">User Name</th>
                               <th  align="center">User Email</th>
-                              <th  align="center">User Password</th>
+                              
                               <th  align="center">Address</th>
                               <th  align="center">Photo</th>
                               <th  align="center" colspan="2">Action</th>
@@ -71,7 +71,7 @@
                             <td align="center"><?php echo $fetch['user_id'];?>        </td>
                             <td align="center"><?php echo $fetch['user_name'];?> </td>
                             <td align="center"><?php echo $fetch['user_email'];?>        </td>
-                            <td align="center"><?php echo $fetch['password'];?>    </td>
+                            
                             <td align="center"><?php echo $fetch['user_address'];?>     </td>
                             <td align="center"><a href="<?php echo $fetch['image'];?>"><img src="<?php echo $fetch['image'];?>" height="50px" width="50px" class="img-circle"></a>     </td>
                             <td>
