@@ -50,55 +50,54 @@
                   <div class="x_content"><br/>
 				    <?php echo message();?>
 				  <!-- table to display the record of all distributors-->
-                      <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr >
-          <th align="center">Name</th>
-				  <th align="center">Father Name</th>
-				  <th align="center">CNIC</th>
-				  <th align="center">Phone no</th>
-				  <th align="center">Address</th>
-				  <th align="center">Update</th>
-				  <th align="center">Delete</th>
-                </tr>
-                </thead>
-                <tbody>
-				
-                   <?php include_once 'distributor_crud.php';?>
-					 <?php 
-					   // create object of a class
-					   $conn = new crudOp();
-					   //call the method through object to display whole data
-					   $read = $conn->read();
-					   while($fetch = $read->fetch_array()){
-					 ?>
-					 <tr>	
-						<td align="center"><?php echo $fetch['name'];?>        </td>
-						<td align="center"><?php echo $fetch['father_name'];?> </td>
-						<td align="center"><?php echo $fetch['cnic'];?>        </td>
-						<td align="center"><?php echo $fetch['phone_no'];?>    </td>
-						<td align="center"><?php echo $fetch['address'];?>     </td>
-            <?php
-                global $distributor_id;
-                  $distributor_id = $fetch['id'];
-            ?>
-						<td align="center">
-              <a href="update_distributor.php?distributor_id=<?php echo $distributor_id;?>">
-              <i class="glyphicon glyphicon-edit"></i></a>
-						</td>
-						
-						
-						<td align="center"><a href="delete_distributor.php?
-						distributor_id=<?php echo $distributer_id;?>" onclick="return Confirm('Are you sure?');">
-							<i class="glyphicon glyphicon-remove-circle"></i></a>
-						</td>
-					</tr>
-					
-				<?php
-					}
-				?>	
-				</tbody>
-                
+                      <table id="datatable-responsive" class="table table-bordered table-striped">
+                        <thead>
+                          <tr >
+                            <th align="center">Name</th>
+                  				  <th align="center">Father Name</th>
+                  				  <th align="center">CNIC</th>
+                  				  <th align="center">Phone no</th>
+                  				  <th align="center">Address</th>
+                  				  <th align="center">Update</th>
+                  				  <th align="center">Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+          				
+                             <?php include_once 'distributor_crud.php';?>
+          					 <?php 
+          					   // create object of a class
+          					   $conn = new crudOp();
+          					   //call the method through object to display whole data
+          					   $read = $conn->read();
+          					   while($fetch = $read->fetch_array()){
+          					 ?>
+          					 <tr>	
+          						<td align="center"><?php echo $fetch['name'];?>        </td>
+          						<td align="center"><?php echo $fetch['father_name'];?> </td>
+          						<td align="center"><?php echo $fetch['cnic'];?>        </td>
+          						<td align="center"><?php echo $fetch['phone_no'];?>    </td>
+          						<td align="center"><?php echo $fetch['address'];?>     </td>
+                      <?php
+                          global $distributor_id;
+                            $distributor_id = $fetch['id'];
+                      ?>
+          						<td align="center">
+                        <a href="update_distributor.php?distributor_id=<?php echo $distributor_id;?>">
+                        <i class="glyphicon glyphicon-edit"></i></a>
+          						</td>
+          						
+          						
+          						<td align="center"><a href="delete_distributor.php?
+          						distributor_id=<?php echo $distributer_id;?>" onclick="return Confirm('Are you sure?');">
+          							<i class="glyphicon glyphicon-remove-circle"></i></a>
+          						</td>
+          					</tr>
+          					
+          				<?php
+          					}
+          				?>	
+          				</tbody>    
               </table>
                     
                   </div>

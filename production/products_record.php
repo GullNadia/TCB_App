@@ -43,51 +43,50 @@
                     </ul>
                     <div class="clearfix"></div>
                   </div>
-				   <div class="x_content"><br/>
+				<div class="x_content"><br/>
 				       <?php echo message();?>
-                      <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
-                <thead>
-                <tr >
-                  <th align="center">Product Name</th>
-				  <th align="center">Manufacturer</th>
-				  <th align="center">Update</th>
-				  <th align="center">Delete</th>
-                </tr>
-                </thead>
+	                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+		                <thead>
+			                <tr >
+			                  <th align="center">Product Name</th>
+							  <th align="center">Manufacturer</th>
+							  <th align="center">Update</th>
+							  <th align="center">Delete</th>
+			                </tr>
+		                </thead>
 						<tbody>
-						
-						   <?php include_once 'product_CRUD.php';?>
-							 <?php 
-							   $conn = new crudOp();
-							   $read = $conn->read();
-							   while($fetch = $read->fetch_array()){
-							 ?>
-							 <tr>	
-								<td align="center"><?php echo $fetch['product_name'];?>  </td>
-								<td align="center"><?php echo $fetch['manufacturer'];?>  </td>
-								<?php 
-									global $product_id;
-									$product_id = $fetch['id'];
-								?>
-								<td align="center">
-									<a href="update_product.php?product_id=<?php echo $product_id;?>">
-              						<i class="glyphicon glyphicon-edit"></i></a>
-								</td>
-								
-								<td align="center"><a href="delete_product.php?product_id=
-									   <?php echo $product_id;?>" onclick="return Confirm('Are you sure?');"> 
-									<i class="glyphicon glyphicon-remove-circle">
-									</i></a>
-								</td>
-							</tr>
 							
-						<?php
-							}
-						?>	 
+							   <?php include_once 'product_CRUD.php';?>
+								 <?php 
+								   $conn = new crudOp();
+								   $read = $conn->read();
+								   while($fetch = $read->fetch_array()){
+								 ?>
+								 <tr>	
+									<td align="center"><?php echo $fetch['product_name'];?>  </td>
+									<td align="center"><?php echo $fetch['manufacturer'];?>  </td>
+									<?php 
+										global $product_id;
+										$product_id = $fetch['id'];
+									?>
+									<td align="center">
+										<a href="update_product.php?product_id=<?php echo $product_id;?>">
+	              						<i class="glyphicon glyphicon-edit"></i></a>
+									</td>
+									
+									<td align="center"><a href="delete_product.php?product_id=
+										   <?php echo $product_id;?>" onclick="return Confirm('Are you sure?');"> 
+										<i class="glyphicon glyphicon-remove-circle">
+										</i></a>
+									</td>
+								</tr>
+								
+							<?php
+								}
+							?>	 
 						</tbody>
-                </table>
-                    
-                  </div>
+	                </table>    
+                </div>
                 </div>
               </div>
             </div>

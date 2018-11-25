@@ -51,9 +51,9 @@ include_once 'customer_crud.php';
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content"><br/>
-				    <?php echo message();?>
-				  <!-- table to display the record of all distributors-->
-                <table id="example1" class="table table-bordered table-striped">
+				            <?php echo message();?>
+				  <!-- table to display the record of all customers-->
+                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap">
                   <thead>
                     <tr>
                         <th align="center">Name</th>
