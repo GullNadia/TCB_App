@@ -59,7 +59,7 @@
 
                                 $startDate = $_POST["startDate"];
                                 $endDate = $_POST["endDate"];
-                                $query = "SELECT * FROM Purchase_invoice WHERE date >= '$startDate' OR date <= '$endDate'";
+                                $query = "SELECT * FROM Purchase_invoice WHERE date >= '$startDate' AND date <= '$endDate'";
                                 $result = mysqli_query($con,$query);
                         ?>
 

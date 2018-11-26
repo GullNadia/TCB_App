@@ -59,7 +59,7 @@
 
                                 $startDate = $_POST["startDate"];
                                 $endDate = $_POST["endDate"];
-                                $query = "SELECT * FROM sale_invoice WHERE date >= '$startDate' OR date <= '$endDate'";
+                                $query = "SELECT * FROM sale_invoice WHERE date >= '$startDate' AND date <= '$endDate'";
                                 $result = mysqli_query($con,$query);
                         ?>
 
@@ -92,7 +92,7 @@
                                 } 
                             ?>
                         </table>
-                        
+
                         <div class="row">     
                             <div class="col-md-4">
                                 <table class="table table-hover">

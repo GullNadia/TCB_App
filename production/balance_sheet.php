@@ -60,13 +60,13 @@
                                 $startDate = $_POST["startDate"];
                                 $endDate = $_POST["endDate"];
 
-                                $sale = "SELECT SUM(net_total) FROM sale_invoice WHERE date >= '$startDate' OR date <= '$endDate'";
+                                $sale = "SELECT SUM(net_total) FROM sale_invoice WHERE date >= '$startDate' AND date <= '$endDate'";
                                 $result = mysqli_query($con,$sale);
                                 $fetch = mysqli_fetch_assoc($result);
                                 $saleNetTotal = $fetch['SUM(net_total)'];
                                 
 
-                                $purchase = "SELECT SUM(net_total) FROM purchase_invoice WHERE date >= '$startDate' OR date <= '$endDate'";
+                                $purchase = "SELECT SUM(net_total) FROM purchase_invoice WHERE date >= '$startDate' AND date <= '$endDate'";
                                 $result = mysqli_query($con,$purchase);
                                 $fetch = mysqli_fetch_assoc($result);
                                 $purchaseNetTotal = $fetch['SUM(net_total)'];
