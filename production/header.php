@@ -10,10 +10,6 @@
 
 ?>
 
-
-
-
-
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -179,29 +175,33 @@
                     </ul>
                   </li>
 				  
-				  <li><a href="#"><i class="fa fa-sign-in"></i> Purchase Invoice <span class="fa fa-chevron-down"></span></a>
-					<ul class="nav child_menu">
+				          <li><a href="#"><i class="fa fa-sign-in"></i> Purchase Invoice <span class="fa fa-chevron-down"></span></a>
+					          <ul class="nav child_menu">
                       <li><a href="purchase_invoice.php">Purchase Invoice Record</a></li>
                     </ul>
                   </li>
-
-
                   <li><a href="#"><i class="fa fa-sign-out"></i> Sale <span class="fa fa-chevron-down"></span></a>
-          <ul class="nav child_menu">
+                    <ul class="nav child_menu">
                       <li><a href="sale_invoice.php">Sale Invoice</a></li>
                       <li><a href="view_sale_invoice.php">View Sale Invoices</a></li>
                     </ul>
                   </li>
-
-
-					 
-				  
-				    <li><a href="#"><i class="glyphicon glyphicon-adjust"></i> &nbsp;&nbsp;&nbsp;Stock <span class="fa fa-chevron-down"></span></a>
-					<ul class="nav child_menu">
-					  <li><a href="available_stock.php">Available</a></li>
-					  <li><a href="sold_stock.php">Sold</a></li>
-					</ul>
-				    </li>
+                  <li><a href="#"><i class="fab fa-resolving"></i> Reports <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="report_daily_purchase.php">Daily Purchase Report</a></li>
+                      <li><a href="report_monthly_purchase.php">Monthly Purchase Report</a></li>
+                      <li><a href="report_daily_sale.php">Daily Sale Report</a></li>
+                      <li><a href="report_monthly_sale.php">Monthly Sale Report</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#"><i class="glyphicon glyphicon-adjust"></i> &nbsp;&nbsp;&nbsp;Stock <span class="fa fa-chevron-down"></span></a>
+          					<ul class="nav child_menu">
+          					  <li><a href="available_stock.php">Available</a></li>
+          					  <li><a href="sold_stock.php">Sold</a></li>
+          					</ul>
+				          </li>
+                  <li><a href="balance_sheet.php"><i class="fas fa-balance-scale"></i> Balance Sheet </a>
+                  </li>
                 </ul>
               </div>
               <div class="menu_section">
